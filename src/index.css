@@ -1,0 +1,57 @@
+/* This line is for build tools like Vite or PostCSS. */
+/* If this is a standalone CSS file, you can remove it. */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Applying a dark gradient background */
+  background: linear-gradient(to bottom right, #1a202c, #2d3748);
+  /* Ensures the gradient covers the entire viewport */
+  background-attachment: fixed;
+}
+
+
+/* Fade-in animation */
+@layer utilities {
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeIn {
+    /* Apply the animation */
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
